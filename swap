@@ -1,0 +1,22 @@
+swap
+
+QT += core
+QT -= gui
+
+CONFIG += c++11
+
+TARGET = test
+CONFIG += console
+CONFIG -= app_bundle
+
+TEMPLATE = app
+
+SOURCES += main.cpp
+win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
+win32:QMAKE_LFLAGS *= -static-libgcc -static-libstdc++
+DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
+CONFIG += no_include_pwd
+CONFIG += thread
+CONFIG += static
+#CONFIG += openssl-linked
+CONFIG += openssl
